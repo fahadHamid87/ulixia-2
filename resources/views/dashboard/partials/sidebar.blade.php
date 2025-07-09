@@ -1,4 +1,6 @@
 <!-- Remove the <html>, <head>, and <body> tags from this partial! -->
+<!-- Modal overlay -->
+
 
 <!-- Mobile Header with Hamburger (Sticky) -->
 <div class="lg:hidden sticky top-0 z-40 bg-white shadow-sm border-b border-gray-200 px-4 py-3 flex items-center justify-between">
@@ -31,7 +33,9 @@
 <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
 
 <!-- Sidebar -->
-<div id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg sidebar-transition transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto z-50">
+<div id="sidebar" class="fixed top-0 left-0 h-full w-72 bg-white shadow-lg sidebar-transition transform -translate-x-full lg:translate-x-0 lg:static lg:h-auto z-50 transition-all duration-300 modal-dimmable">
+
+
     <div class="p-6 h-full overflow-y-auto">
         <!-- Mobile Close Button -->
         <div class="lg:hidden flex justify-end mb-4">
@@ -111,43 +115,29 @@
             </a>
         </nav>
 
-        <!-- Promotional Cards -->
-        <div class="space-y-4 mb-8">
-            <!-- <div class="promo-gradient-1 p-4 rounded-xl text-white">
-                <div class="flex items-start space-x-3">
-                    <div class="bg-white bg-opacity-20 p-2 rounded-lg">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium leading-tight">
-                        I boost my profile to be among the first Service providers
-                    </p>
-                </div>
-            </div> -->
-            <a href="{{ route('user.affiliate.account') }}" class="block promo-gradient-2 p-3 rounded-lg text-white shadow-lg hover:scale-105 transition-transform duration-200">
-                <div class="flex flex-col items-center justify-center">
-                    <div class="bg-white bg-opacity-20 p-2 rounded-full mb-2">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                    </div>
-                    <span class="text-base font-bold leading-tight">My Affiliation Account</span>
-                </div>
-            </a>
+      <!-- Promotional Cards + Logout -->
+<div class="space-y-4 mb-8">
+    <a href="{{ route('user.affiliate.account') }}"
+       class="block bg-gradient-to-r from-pink-500 to-orange-500 p-3 rounded-lg text-white shadow-lg hover:scale-105 transition-transform duration-200">
+        <div class="flex flex-col items-center justify-center">
+            <div class="bg-white bg-opacity-20 p-2 rounded-full mb-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+            </div>
+            <span class="text-base font-bold leading-tight">My Affiliation Account</span>
         </div>
+    </a>
 
-        <!-- Logout -->
-        <div class="pt-4 border-t border-gray-200">
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="w-full text-sm font-semibold text-red-500 border border-red-200 hover:text-white hover:bg-red-500 hover:border-red-500 transition-all duration-200 px-4 py-2 rounded-lg">
-                    Log Out
-                </button>
-            </form>
-        </div>
+    <!-- Logout button placed just below affiliation -->
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="w-full text-sm font-semibold text-red-500 border border-red-200 hover:text-white hover:bg-red-500 hover:border-red-500 transition-all duration-200 px-4 py-2 rounded-lg">
+            Log Out
+        </button>
+    </form>
+</div>
     </div>
 </div>
 <script>

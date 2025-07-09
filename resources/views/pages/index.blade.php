@@ -306,7 +306,7 @@ body {
 
 </head>
 
-<body class="bg-gray-50 overflow-x-hidden w-full "  >
+<body class="bg-gray-50 overflow-x-hidden w-full  "  >
 @include('includes.header')
  @include('pages.popup')
 
